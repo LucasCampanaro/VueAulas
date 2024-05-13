@@ -3,9 +3,14 @@
 
     <div 
         v-for="(obj, index) in todos" 
-        v-bind:key="obj.id"
+        :key="obj.id"
         class="todos-item"
       >
+        <img 
+          v-if="obj.imgSrc"
+          :src="obj.imgSrc" 
+          alt=""
+        >
         {{ index }} - {{ obj.title }}
     </div>
 
@@ -25,13 +30,16 @@ export default {
               "userId": 1,
               "id": 1,
               "title": "delectus aut autem",
-              "completed": false
+              "completed": false,
+              "imgSrc": 'https://fakeimg.pl/150x150',
+              "imgAlt": 'Alt vindo de uma variavel',
           },
           {
               "userId": 1,
               "id": 2,
               "title": "quis ut nam facilis et officia qui",
-              "completed": false
+              "completed": false,
+              "imgSrc": 'https://fakeimg.pl/150x150',
           },
           {
               "userId": 1,
