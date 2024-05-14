@@ -1,27 +1,86 @@
 <template>
   <div>
+    <div>
+      One-way data binding <br>
+      Two-way data binding <br>
+      v-model -> formulários
+    </div>
 
-    <h1 :class="{ 'title': true, 'title-home': isHome }">Curso Vue3</h1>
+    <br><br>
 
-    <p :class="pClass">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus eum itaque explicabo qui nemo perferendis expedita saepe quaerat ipsam consectetur nostrum officia ipsum placeat, natus corrupti voluptatem cum fugit voluptatum!
-    </p>
+    <div>
+      <label>Nome</label> <br>
+      <input 
+        type="text"
+        v-model="name"
+      > <br>
+      {{ name }}
+    </div>
 
-    <p :style="styleClass">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus eum itaque explicabo qui nemo perferendis expedita saepe quaerat ipsam consectetur nostrum officia ipsum placeat, natus corrupti voluptatem cum fugit voluptatum!
-    </p>
+    <br><br>
 
-    <div 
-        v-for="(obj, index) in todos" 
-        :key="obj.id"
-        class="todos-item"
-      >
-        <img 
-          v-if="obj.imgSrc"
-          :src="obj.imgSrc" 
-          alt=""
-        >
-        {{ index }} - {{ obj.title }}
+    <div>
+      <label>Esportes</label> <br>
+      <select v-model="esportes">
+        <option value="">Escolha</option>
+        <option value="futebol">Futebol</option>
+        <option value="volei">Volei</option>
+        <option value="basquete">Basquete</option>
+      </select> <br>
+      {{ esportes }}
+    </div>
+
+    <br><br>
+
+    <div>
+      <label>Newsletter</label> <br>
+      <input 
+      v-model="newsletter"
+        type="radio"
+        value="Sim"
+      > Sim
+      
+      <input 
+        v-model="newsletter"
+        type="radio" 
+        value="Não"
+      > Não <br>
+      {{ newsletter }}
+    </div>
+
+    <br><br>
+    
+    <div>
+      <label>Contrato</label> <br>
+      <input 
+      v-model="contract"
+        type="checkbox"
+      > Aceito os termos de uso <br>
+      
+      {{ contract }}
+    </div>
+
+    <br><br>
+
+    <div>
+      <label>Cores que você mais gosta</label> <br>
+      <input 
+      v-model="colors"
+        type="checkbox"
+        value="Preto"
+      > Preto
+      <input 
+      v-model="colors"
+        type="checkbox"
+        value="Azul"
+      > Azul
+      <input 
+      v-model="colors"
+        type="checkbox"
+        value="Vermelho"
+      > Vermelho <br>
+      
+      {{ colors }}
     </div>
 
   </div>
@@ -33,72 +92,21 @@
 
 export default {
   name: 'App',
-    data() {
-      return {
-        isHome: true,
-        classVar: 'title',
-        pClass: ['text', 'text-home'],
-        styleClass: { color: 'aqua', backgroundColor: 'black', 'font-size': '20px' },
-        todos: [
-          {
-              "userId": 1,
-              "id": 1,
-              "title": "delectus aut autem",
-              "completed": false,
-              "imgSrc": 'https://fakeimg.pl/150x150',
-              "imgAlt": 'Alt vindo de uma variavel',
-          },
-          {
-              "userId": 1,
-              "id": 2,
-              "title": "quis ut nam facilis et officia qui",
-              "completed": false,
-              "imgSrc": 'https://fakeimg.pl/150x150',
-          },
-          {
-              "userId": 1,
-              "id": 3,
-              "title": "fugiat veniam minus",
-              "completed": false
-          },
-          {
-              "userId": 1,
-              "id": 4,
-              "title": "et porro tempora",
-              "completed": true
-          },
-          {
-              "userId": 1,
-              "id": 5,
-              "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
-              "completed": false
-          }
-        ]
-      }
+  data() {
+    return {
+      name: 'Digite aqui',
+      esportes: '',
+      newsletter: '',
+      contract: false,
+      colors: [],
     }
+  }
 }
 </script>
 
 <style>
-.title {
-  font-size: 20px;
-  color: blue;
-}
-.title-home {
-  font-size: 40px;
-  color: green;
-}
-.text {
-  color: #2c3e50
-}
-.text-home {
-  color: cadetblue;
-}
-.todos-item {
-  background-color: #333;
-  margin: 0 0 5px 0;
-  padding: 3px 6px;
-  color: #fff
+label {
+  font-weight: bold;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
