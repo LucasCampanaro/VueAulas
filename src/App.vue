@@ -1,6 +1,16 @@
 <template>
   <div>
 
+    <h1 :class="{ 'title': true, 'title-home': isHome }">Curso Vue3</h1>
+
+    <p :class="pClass">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus eum itaque explicabo qui nemo perferendis expedita saepe quaerat ipsam consectetur nostrum officia ipsum placeat, natus corrupti voluptatem cum fugit voluptatum!
+    </p>
+
+    <p :style="styleClass">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus eum itaque explicabo qui nemo perferendis expedita saepe quaerat ipsam consectetur nostrum officia ipsum placeat, natus corrupti voluptatem cum fugit voluptatum!
+    </p>
+
     <div 
         v-for="(obj, index) in todos" 
         :key="obj.id"
@@ -25,6 +35,10 @@ export default {
   name: 'App',
     data() {
       return {
+        isHome: true,
+        classVar: 'title',
+        pClass: ['text', 'text-home'],
+        styleClass: { color: 'aqua', backgroundColor: 'black', 'font-size': '20px' },
         todos: [
           {
               "userId": 1,
@@ -66,6 +80,20 @@ export default {
 </script>
 
 <style>
+.title {
+  font-size: 20px;
+  color: blue;
+}
+.title-home {
+  font-size: 40px;
+  color: green;
+}
+.text {
+  color: #2c3e50
+}
+.text-home {
+  color: cadetblue;
+}
 .todos-item {
   background-color: #333;
   margin: 0 0 5px 0;
